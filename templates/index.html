@@ -1,0 +1,617 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>ResuMe</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static',filename='cover.css') }}" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+<!--    <script src="{{ url_for('static',filename='handlebars-v2.0.0.js')}}"></script>-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+    <script src="http://getbootstrap.com/assets/js/docs.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="jumbotron">
+    <div class="text-center">
+
+      <div class="site-wrapper-inner">
+
+          <!-- <div class="masthead clearfix">
+            <div class="inner">
+              <h3 class="masthead-brand">Cover</h3>
+              <nav>
+                <ul class="nav masthead-nav">
+                  <li class="active"><a href="#">Home</a></li>
+                  <li><a href="#">Features</a></li>
+                  <li><a href="#">Contact</a></li>
+                </ul>
+              </nav>
+            </div>
+          </div> -->
+
+          <div id="cover" class="inner cover">
+            <h1 class="cover-heading">ResuMe</h1>
+            <p class="lead">Created by Brown students: Edward Li, Sahil Prasad, and Yuta Arai</p>
+            <p class="lead">
+              <a id="button" class="btn btn-lg btn-default" onclick="myToggle('cover','portion')">Get started</a>
+                 <script>
+                   var myToggle = function(hidingId,showingId) {
+                     var hid = document.getElementById(hidingId);
+                     var sh = document.getElementById(showingId);
+                     $(hid).fadeOut();
+                     jQuery(sh).css("visibility","none");
+                     $(sh).delay(400).fadeIn();;
+                     jQuery(sh).css("visibility","visible");
+                     $("#example").fadeOut();
+                   }
+                 </script>
+            </p>
+          </div>
+
+          <script language="javascript" type="text/javascript">
+            function limitText(limitField, limitCount, limitNum) {
+              if (limitField.value.length > limitNum) {
+                limitField.value = limitField.value.substring(0, limitNum);
+              } else {
+                limitCount.value = limitNum - limitField.value.length;
+              }
+            }
+            </script>
+
+          <div id="portion" class="portion" >
+            <form class="form-horizontal">
+            <fieldset>
+
+
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="textinput">Enter name</label>
+              <div class="col-md-4">
+              <input id="name" value="" name="textinput" type="text" placeholder="name" class="form-control input-md">
+
+              </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="textinput">E-mail</label>
+              <div class="col-md-4">
+              <input id="email" value="" name="textinput" type="text" placeholder="e-mail" class="form-control input-md">
+
+              </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="textinput">Phone Number</label>
+              <div class="col-md-4">
+              <input id="number" value="" name="textinput" type="text" placeholder="phone number" class="form-control input-md">
+
+              </div>
+            </div>
+
+            <form class="form-horizontal">
+            <fieldset>
+
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="textinput">Address Line 1</label>
+              <div class="col-md-6">
+              <input id="address1" value="" name="textinput" type="text" placeholder="address" class="form-control input-md">
+
+              </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="textinput">Address Line 2</label>
+              <div class="col-md-6">
+              <input id="address2" value="" name="textinput" type="text" placeholder="address" class="form-control input-md">
+
+              </div>
+            </div>
+
+            </fieldset>
+            </form>
+
+            <!-- Select Basic -->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="selectbasic">Enter type</label>
+              <div class="col-md-4">
+                <select id="type" name="selectbasic" class="form-control">
+                  <option value="1">Business</option>
+                  <option value="2">Technical</option>
+                </select>
+              </div>
+            </div>
+
+            <a id="single" class="btn btn-default" onclick="myToggle('portion','businessPortion')">Next</a>
+            </fieldset>
+            </form>
+          </div>
+
+        <div class="portion" id="businessPortion">
+          <form class="form-horizontal">
+          <fieldset>
+
+
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="textinput">College</label>
+            <div class="col-md-4">
+            <input id="college" name="textinput" type="text" placeholder="" class="form-control input-md" required="">
+
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="textinput">Major</label>
+            <div class="col-md-2">
+            <input id="major" name="textinput" type="text" placeholder="" class="form-control input-md" required="">
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="textinput">Graduation Date (Month, Year)</label>
+            <div class="col-md-4">
+            <input id="graduationc" name="textinput" type="text" placeholder="" class="form-control input-md" required="">
+
+            </div>
+          </div>
+
+          <!-- Textarea -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="textarea">Relevant Coursework</label>
+            <div class="col-md-4">
+              <textarea class="form-control" id="coursework" name="textarea"></textarea>
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="textinput">GPA</label>
+            <div class="col-md-2">
+            <input id="gpac" name="textinput" type="text" placeholder="" class="form-control input-md">
+
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="textinput">High School</label>
+            <div class="col-md-4">
+            <input id="highschool" name="textinput" type="text" placeholder="" class="form-control input-md" required="">
+
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="textinput">Graduation Date (Month, Year)</label>
+            <div class="col-md-4">
+            <input id="graduationhs" name="textinput" type="text" placeholder="" class="form-control input-md" required="">
+
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="textinput">GPA</label>
+            <div class="col-md-2">
+            <input id="gpahs" name="textinput" type="text" placeholder="" class="form-control input-md">
+
+            </div>
+          </div>
+
+          <div>
+            <a id="bus" class="btn btn-default btn-default" onclick="myToggle('businessPortion','portion')">
+            Back</a>
+            <a id="bus" class="btn btn-default btn-default" onclick="myToggle('businessPortion','businessPortion2')">
+            Next</a>
+          </div>
+
+        </fieldset>
+        </form>
+      </div>
+
+      <div class="portion" id="businessPortion2">
+        <form class="form-horizontal">
+        <fieldset>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="textinput">Activity</label>
+            <div class="col-md-4">
+            <input id="activity" name="textinput" type="text" placeholder="" class="form-control input-md">
+
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="textinput">Position</label>
+            <div class="col-md-4">
+            <input id="position" name="textinput" type="text" placeholder="" class="form-control input-md">
+
+            </div>
+          </div>
+
+
+          <!-- Textarea -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="textarea">Experience</label>
+            <div class="col-md-4">
+              <textarea class="form-control" id="description1" name="textarea"></textarea>
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="textinput">Duration (Month, Year - Month, Year)</label>
+            <div class="col-md-4">
+            <input id="duration" name="textinput" type="text" placeholder="" class="form-control input-md">
+
+            </div>
+          </div>
+
+          <hr/>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="textinput">Activity</label>
+            <div class="col-md-4">
+            <input id="activity2" name="textinput" type="text" placeholder="" class="form-control input-md">
+
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="textinput">Position</label>
+            <div class="col-md-4">
+            <input id="position2" name="textinput" type="text" placeholder="" class="form-control input-md">
+
+            </div>
+          </div>
+
+          <!-- Textarea -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="textarea">Experience</label>
+            <div class="col-md-4">
+              <textarea class="form-control" id="description2" name="textarea"></textarea>
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="textinput">Duration (Month, Year - Month, Year)</label>
+            <div class="col-md-4">
+            <input id="duration2" name="textinput" type="text" placeholder="" class="form-control input-md">
+
+            </div>
+          </div>
+
+          <hr/>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="textinput">Activity</label>
+            <div class="col-md-4">
+            <input id="activity3" name="textinput" type="text" placeholder="" class="form-control input-md">
+
+            </div>
+          </div>
+
+
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="textinput">Position</label>
+            <div class="col-md-4">
+            <input id="position3" name="textinput" type="text" placeholder="" class="form-control input-md">
+
+            </div>
+          </div>
+
+
+          <!-- Textarea -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="textarea">Experience</label>
+            <div class="col-md-4">
+              <textarea class="form-control" id="description3" name="textarea"></textarea>
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="textinput">Duration (Month, Year - Month, Year)</label>
+            <div class="col-md-4">
+            <input id="duration3" name="textinput" type="text" placeholder="" class="form-control input-md">
+
+            </div>
+          </div>
+
+
+          <div>
+            <a id="bus2" class="btn btn-default btn-default" onclick="myToggle('businessPortion2','businessPortion')">
+            Back</a>
+            <a id="bus2" class="btn btn-default btn-default" onclick="nextForm()">
+            Next</a>
+            <script>
+            var nextForm = function() {
+            $("#businessPortion2").fadeOut();
+            if ($("#selectbasic").val() == "1") {
+                $("#businessPortion3").delay(400).fadeIn();
+                jQuery('#businessPortion3').css("visibility","visible");
+            } else {
+                $("#techPortion3").delay(400).fadeIn();
+                 jQuery('#techPortion3').css("visibility","visible");
+              }
+            }
+               </script>
+          </div>
+
+        </fieldset>
+        </form>
+      </div>
+
+
+      <div class="portion" id="businessPortion3">
+        <form class=form-horizontal>
+          <fieldset>
+
+
+
+          <!-- Textarea -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="textarea">Extracurriculars</label>
+            <div class="col-md-4">
+              <textarea class="form-control" id="extra1" name="textarea"></textarea>
+            </div>
+          </div>
+
+          <!-- Textarea -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="textarea">Extracurriculars</label>
+            <div class="col-md-4">
+              <textarea class="form-control" id="extra2" name="textarea"></textarea>
+            </div>
+          </div>
+
+
+          <!-- Textarea -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="textarea">Interest</label>
+            <div class="col-md-4">
+              <textarea class="form-control" id="interest" name="textarea">
+          </textarea>
+            </div>
+          </div>
+
+          <!-- Textarea -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="textarea">Interest</label>
+            <div class="col-md-4">
+              <textarea class="form-control" id="interest" name="textarea"></textarea>
+            </div>
+          </div>
+
+          <div>
+            <a id="bus3" class="btn btn-default btn-default"
+               onclick="myToggle('businessPortion3','businessPortion2')">Back</a>
+            <a id="bus3" class="btn btn-default btn-default"
+               onclick="myToggle('businessPortion3','submit')">Next</a>
+          </div>
+
+          </fieldset>
+          </form>
+        </div>
+
+
+      <div class="portion" id="techPortion3">
+        <form class=form-horizontal>
+          <fieldset>
+
+          <!-- Textarea -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="textarea">Project</label>
+            <div class="col-md-4">
+              <input id="project1" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </div>
+          </div>
+
+          <!-- Textarea -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="textarea">Description</label>
+            <div class="col-md-4">
+              <textarea class="form-control" id="description4" name="textarea"></textarea>
+            </div>
+          </div>
+
+          <!-- Textarea -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="textarea">Project</label>
+            <div class="col-md-4">
+              <input id="project2" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </div>
+          </div>
+
+          <!-- Textarea -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="textarea">Description</label>
+            <div class="col-md-4">
+              <textarea class="form-control" id="description5" name="textarea"></textarea>
+            </div>
+          </div>
+
+
+          <!-- Textarea -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="textarea">Coding Languages</label>
+            <div class="col-md-4">
+              <textarea class="form-control" id="codinglanguages" name="textarea"></textarea>
+            </div>
+          </div>
+
+          <!-- Textarea -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="textarea">Interests</label>
+            <div class="col-md-4">
+              <textarea class="form-control" id="interests" name="textarea"></textarea>
+            </div>
+          </div>
+
+          <div>
+            <a id="tech1" class="btn btn-default btn-default" onclick="myToggle('techPortion3','businessPortion2')">
+            Back</a>
+            <a id="tech1" class="btn btn-default btn-default" onclick="myToggle('techPortion3','submit')">
+            Next</a>
+          </div>
+
+          </fieldset>
+          </form>
+        </div>
+
+      <div class="portion" id="submit">
+      <a id="submitButton" class="btn btn-lg btn-default" onclick="generate()">Submit</a>
+      </div>
+
+      <script>
+
+      function generate(){
+        var textareas = $('[name=textarea]');
+        var textinputs = $('[name=textinput]');
+        var textlength = textareas.length;
+        var textinputlength = textinputs.length;
+        var dictionary = {};
+        for (var i = 0; i < textlength; i++) {
+        dictionary[textareas[i].getAttribute("id")] = (String(textareas[i].value));
+        };
+        for (var i = 0; i < textinputlength; i++) {
+          dictionary[textinputs[i].getAttribute("id")] = (String(textinputs[i].value));
+        };
+          var source = $("#entry-template").html();
+         console.log(source);
+          var template = Handlebars.compile(source);
+         console.log(dictionary);
+        //  console.log(template);
+          var html = template(dictionary);
+         console.log(html);
+          $("body").html(html);
+      };
+
+
+      </script>
+
+      <script id = "entry-template" type = "text/html">
+
+        {% raw %}
+
+        <p style="text-align: center;"><span style="font-family:georgia,serif;"><span style="font-size:28px;"><strong><td>{{name}}</td> </strong></span></span></p>
+
+        <p style="text-align: center;"><span style="font-size:14px;">{{number}} &bull;&nbsp;{{email}}</span></p>
+
+        <p style="text-align: center;"><span style="font-size:14px;">{{address1}},{{address2}}</span></p>
+
+        <p><span style="font-size: 12px;"><span style="font-size:18px;"><span style="font-size:20px;">EDUCATION</span></span></span></p>
+
+        <hr />
+        <p><strong><td>{{college}}</td>,</strong>&nbsp;{{major}}</p>
+
+        <p>- {{gpac}}</p>
+
+        <p>- {{coursework}}</p>
+
+        <p><b>{{highschool}}</b></p>
+
+        <p>- {{gpahs}}</p>
+
+        <p>&nbsp;</p>
+
+        <p><span style="font-size:20px;">EXPERIENCE</span></p>
+
+        <hr />
+        <p><strong>{{activity}},&nbsp;</strong><em>{{position}}</em></p>
+
+        <p>- {{description1}}</p>
+
+        <p><strong>{{activity2}},</strong>&nbsp;<em>{{position2}}</em></p>
+
+        <p>- {{description2}}</p>
+
+        <p><strong>{{activity3}},</strong>&nbsp;<em>{{position3}}</em></p>
+
+        <p>- {{description3}}</p>
+
+        <p>&nbsp;</p>
+
+        <p><span style="font-size:20px;">PROGRAMMING PROJECTS</span></p>
+
+        <hr />
+        <p><b>{{project1}}</b></p>
+
+        <p>- {{description4}}</p>
+
+        <p><strong>{{project2}}</strong></p>
+
+        <p>- {{description5}}</p>
+
+        <p><span style="font-size:20px;">SKILLS &amp; INTERESTS</span></p>
+
+        <hr />
+        <p>Coding Languages</p>
+
+        <p>- {{codinglanguages}}</p>
+
+        <p>Interests</p>
+
+        <p>-{{interest1}}</p>
+
+        {% endraw %}
+      </script>
+
+          <div class="mastfoot">
+            <div id="example" class="inner">
+              <p>Licensed by Romania</p>
+            </div>
+          </div>
+
+      </div>
+    </div>
+
+    </div>
+
+            <script src="../static/handlebars-v3.0.0.js" type="text/javascript"></script>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+  </body>
+</html>
